@@ -1,25 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+/** @jsxImportSource @emotion/react */
+import { css } from "@emotion/react";
 
-function App() {
+export default function testPage() {
+  const color = "skyblue";
+
+  const P = (props) => (
+    <p
+      css={{
+        margin: 0,
+        fontSize: 12,
+        lineHeight: "1.5",
+        fontFamily: "sans-serif",
+        color: "black",
+      }}
+      {...props} // <- props contains the `className` prop
+    />
+  );
+
+  const ArticleText = (props) => (
+    <P
+      css={{
+        fontSize: 14,
+        fontFamily: "Georgia, serif",
+        color: "darkgray",
+      }}
+      {...props} // <- props contains the `className` prop
+    />
+  );
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // <div
+    //   css={css`
+    //     background-color: hotpink;
+    //     &:hover {
+    //       color: ${color};
+    //     }
+    //   `}
+    // >
+    //   This has a hotpink background.
+    // </div>
+    <div>
+      <P>nuno gervasio</P>
+      <ArticleText>text one</ArticleText>
     </div>
   );
 }
-
-export default App;
