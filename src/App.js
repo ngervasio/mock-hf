@@ -1,47 +1,46 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 
-export default function testPage() {
-  const color = "skyblue";
+import Header from "./Header";
+import DeliveryInfo from "./DeliveryInfo";
+import RecipeInfo from "./RecipeInfo";
 
-  const P = (props) => (
-    <p
-      css={{
-        margin: 0,
-        fontSize: 12,
-        lineHeight: "1.5",
-        fontFamily: "sans-serif",
-        color: "black",
-      }}
+export default function testPage() {
+  const Wrapper = (props) => (
+    <div
+      css={css`
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 1200px;
+      `}
       {...props} // <- props contains the `className` prop
     />
   );
-
-  const ArticleText = (props) => (
-    <P
-      css={{
-        fontSize: 14,
-        fontFamily: "Georgia, serif",
-        color: "darkgray",
-      }}
+  const MainWrapper = (props) => (
+    <div
+      css={css`
+        display: flex;
+        justify-content: center;
+      `}
       {...props} // <- props contains the `className` prop
     />
   );
 
   return (
-    // <div
-    //   css={css`
-    //     background-color: hotpink;
-    //     &:hover {
-    //       color: ${color};
-    //     }
-    //   `}
-    // >
-    //   This has a hotpink background.
-    // </div>
-    <div>
-      <P>nuno gervasio</P>
-      <ArticleText>text one</ArticleText>
-    </div>
+    <MainWrapper>
+      <Wrapper>
+        {/* recipe information dates section */}
+        <Header />
+        {/* recipe information delivery section */}
+        <DeliveryInfo />
+        {/* recipe information cards section */}
+        <RecipeInfo />
+      </Wrapper>
+    </MainWrapper>
   );
 }
+
+// reusable containers/wrappers in React-do you make dynamic ones? are ther any other common dynamic componenets in react?
+// do you recommend firefox over chrome?
