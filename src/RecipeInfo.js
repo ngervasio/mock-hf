@@ -1,20 +1,16 @@
 /** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
+import styled from "@emotion/styled";
 import RecipeButton from "./Button";
 
 export default function RecipeInfo() {
-  const RecipeInfo = (props) => (
-    <div
-      css={css`
-        display: flex;
-        align-content: center;
-        justify-content: center;
-        width: 1100px;
-        padding: 20px 0px 0px 0px;
-      `}
-      {...props}
-    />
-  );
+  const RecipeInfo = styled.div`
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 1100px;
+    padding: 20px 0px 0px 0px;
+  `;
 
   const RecipeContainer = (props) => (
     <div
@@ -39,13 +35,13 @@ export default function RecipeInfo() {
         width: 360px;
         border-radius: 4px;
         transition: box-shadow 0.1s linear 0s;
-        border: 2px solid rgb(6, 122, 70);
-        margin: -2px;
+        box-shadow: rgb(0 0 0 / 20%) 0px 8px 16px 0px;
         cursor: pointer;
       `}
       {...props}
     />
   );
+
   const RecipeCardHeadline = (props) => (
     <h4
       css={css`
@@ -93,6 +89,28 @@ export default function RecipeInfo() {
       {props.children}
     </div>
   );
+  const RecipeCardDetailsWrapper = (props) => (
+    <div
+      css={css`
+        display: flex;
+        flex-direction: column;
+        max-width: 340px;
+      `}
+      {...props}
+    >
+      {props.children}
+    </div>
+  );
+  const RecipeCardDetailsContainer = (props) => (
+    <div
+      css={css`
+        padding: 10px;
+      `}
+      {...props}
+    >
+      {props.children}
+    </div>
+  );
 
   const NumberOfRecipeContainer = (props) => (
     <div
@@ -112,19 +130,24 @@ export default function RecipeInfo() {
       <RecipeContainer>
         <RecipeCardWrapper>
           <div>
-            <img src="https://via.placeholder.com/360x200.png" alt="recipe" />
+            <img
+              src="https://dummyimage.com/360x200/5db553/fff.png&text=recipe+image"
+              alt="recipe"
+            />
           </div>
-          <div>
-            <RecipeCardHeadline>
-              Caesar Salad with marinated chicken
-            </RecipeCardHeadline>
-            <RecipeCardDescription>
-              ready-to-eat dish contains max. 20% carbohydrates
-            </RecipeCardDescription>
-            <RecipeCardDetails>35 min</RecipeCardDetails>
-          </div>
+          <RecipeCardDetailsContainer>
+            <RecipeCardDetailsWrapper>
+              <RecipeCardHeadline>
+                Caesar Salad with marinated chicken
+              </RecipeCardHeadline>
+              <RecipeCardDescription>
+                ready-to-eat dish contains max. 20% carbohydrates
+              </RecipeCardDescription>
+              <RecipeCardDetails>35 min</RecipeCardDetails>
+            </RecipeCardDetailsWrapper>
+          </RecipeCardDetailsContainer>
           <NumberOfRecipeContainer>
-            <RecipeButton type="">Cook now</RecipeButton>
+            <RecipeButton buttonType="primary">Cook now</RecipeButton>
           </NumberOfRecipeContainer>
         </RecipeCardWrapper>
       </RecipeContainer>

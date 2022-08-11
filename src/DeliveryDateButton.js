@@ -3,44 +3,38 @@ import styled from "@emotion/styled";
 
 const Button = styled.button`
   color: ${(props) => {
-    if (props.buttonType === "primary") {
-      return "#ffffff";
+    if (props.buttonType === "secondary") {
+      return "#8e8e8e";
     } else {
       return "#067a46";
     }
   }};
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   vertical-align: text-bottom;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  border-radius: 4px;
   font-size: 16px;
   font-family: Agrandir, Verdana, Geneva, sans-serif;
   text-transform: none;
   text-decoration: none;
   letter-spacing: 0.7px;
-  height: 40px;
-  width: 340px;
-  border-style: solid;
-  border-width: 1px;
-  border-color: #067a46;
+  border: none;
+  border-radius: 4px;
+  height: 62px;
+  width: 95px;
   background-color: ${(props) => {
-    if (props.buttonType === "primary") {
-      return "#067a46";
+    if (props.buttonType === "secondary") {
+      return "#eeeeee";
     } else {
       return "#ffffff";
     }
   }};
-  box-shadow: ${(props) => {
-    if (props.buttonType === "primary") {
-      return "rgb(0 0 0 / 20%) 0px 8px 16px 0px";
-    }
-  }};
 `;
 
-const RecipeButton = (props) => {
+const DeliveryDateButton = (props) => {
   return <Button buttonType={props.buttonType}>{props.children}</Button>;
 };
 
-export default RecipeButton;
+export default DeliveryDateButton;
