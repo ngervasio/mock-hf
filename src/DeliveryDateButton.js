@@ -9,7 +9,7 @@ const Button = styled.button`
       return "#067a46";
     }
   }};
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   vertical-align: text-bottom;
   align-items: center;
@@ -33,8 +33,22 @@ const Button = styled.button`
   }};
 `;
 
+const DateButtonSpan = styled.span`
+  font-family: "Source Sans Pro", "Trebuchet MS", Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-weight: 600;
+  border: none;
+  font-size: 13px;
+`;
+
 const DeliveryDateButton = (props) => {
-  return <Button buttonType={props.buttonType}>{props.children}</Button>;
+  return (
+    <Button buttonType={props.buttonType}>
+      <DateButtonSpan>{props.weekday}</DateButtonSpan>
+      <DateButtonSpan>{props.date}</DateButtonSpan>
+      <DateButtonSpan>{props.month}</DateButtonSpan>
+    </Button>
+  );
 };
 
 export default DeliveryDateButton;

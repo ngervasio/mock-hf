@@ -11,7 +11,7 @@ export default function DeliveryInfo() {
         display: flex;
         align-content: center;
         justify-content: space-between;
-        width: 1100px;
+        width: 1200px;
         margin: 0 auto;
         padding: 20px 0px 0px 0px;
       `}
@@ -33,6 +33,7 @@ export default function DeliveryInfo() {
   `;
 
   const DeliveryStatusLink = styled(SpanBase)`
+    cursor: pointer;
     text-decoration: underline;
   `;
 

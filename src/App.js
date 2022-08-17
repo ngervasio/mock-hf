@@ -2,8 +2,8 @@
 import { css } from "@emotion/react";
 
 import Header from "./Header";
-import DeliveryInfo from "./DeliveryInfo";
-import RecipeInfo from "./RecipeInfo";
+import Delivery from "./Delivery";
+import Recipes from "./Recipes";
 
 export default function testPage() {
   const Wrapper = (props) => (
@@ -34,9 +34,9 @@ export default function testPage() {
         {/* recipe information dates section */}
         <Header />
         {/* recipe information delivery section */}
-        <DeliveryInfo />
+        <Delivery />
         {/* recipe information cards section */}
-        <RecipeInfo />
+        <Recipes />
       </Wrapper>
     </MainWrapper>
   );
