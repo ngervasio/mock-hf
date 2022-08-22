@@ -43,7 +43,7 @@ const DateButtonSpan = styled.span`
 
 const DeliveryDateButton = (props) => {
   return (
-    <Button buttonType={props.buttonType}>
+    <Button buttonType={props.buttonType} onClick={props.onClick}>
       <DateButtonSpan>{props.weekday}</DateButtonSpan>
       <DateButtonSpan>{props.date}</DateButtonSpan>
       <DateButtonSpan>{props.month}</DateButtonSpan>
