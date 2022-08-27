@@ -62,14 +62,18 @@ export default function RecipeCard({
     font-family: "Source Sans Pro", "Trebuchet MS", Helvetica, sans-serif;
   `;
 
+  const mockRecipeImage =
+    "https://dummyimage.com/360x200/5db553/fff.png&text=recipe+image";
+
+  // const RecipeImage = styled.image`
+  //   background-image: url(${mockRecipeImage});
+  // `;
+
   return (
     <RecipeContainer>
       <RecipeCardWrapper direction="column">
         <div>
-          <img
-            src="https://dummyimage.com/360x200/5db553/fff.png&text=recipe+image"
-            alt="recipe"
-          />
+          <img src={mockRecipeImage} alt="recipe" />
         </div>
         <RecipeCardDetailsContainer>
           <RecipeCardDetailsWrapper direction="column">

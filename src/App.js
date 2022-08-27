@@ -1,4 +1,5 @@
 /** @jsxImportSource @emotion/react */
+import { Link } from "react-router-dom";
 import { css } from "@emotion/react";
 
 import Header from "./Header";
@@ -37,6 +38,7 @@ export default function testPage() {
         <Delivery />
         {/* recipe information cards section */}
         <Recipes />
+        <Link to="/recipe">RecipePage</Link>
       </Wrapper>
     </MainWrapper>
   );
