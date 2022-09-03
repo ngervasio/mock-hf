@@ -2,13 +2,24 @@
 import styled from "@emotion/styled";
 import RecipeButton from "./Button";
 import FlexBox from "./FlexBox";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function RecipeCard({
+  id,
   headline,
   description,
   details,
   buttonText,
 }) {
+  const [descriptionState, setDescription] = useState(description);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setDescription(descriptionState + " from effect");
+    }, 2000);
+  }, []);
+
   const RecipeContainer = styled(FlexBox)`
     padding: 0px 16px 0px 16px;
   `;
@@ -59,6 +70,7 @@ export default function RecipeCard({
     font-weight: 600;
     font-size: 16px;
     line-height: 20px;
+    text-decoration: none;
     font-family: "Source Sans Pro", "Trebuchet MS", Helvetica, sans-serif;
   `;
 
@@ -69,23 +81,39 @@ export default function RecipeCard({
   //   background-image: url(${mockRecipeImage});
   // `;
 
+  const RecipeLink = styled(Link)`
+    text-decoration: none;
+    color: #242424
+    &:hover {
+      color: #f7e;
+    }
+    &:visited {
+      color: #242424
+      text-decoration: none;
+    }
+    &:focus {
+      color: blue;
+    }
+  `;
   return (
-    <RecipeContainer>
-      <RecipeCardWrapper direction="column">
-        <div>
-          <img src={mockRecipeImage} alt="recipe" />
-        </div>
-        <RecipeCardDetailsContainer>
-          <RecipeCardDetailsWrapper direction="column">
-            <RecipeCardHeadline>{headline}</RecipeCardHeadline>
-            <RecipeCardDescription>{description}</RecipeCardDescription>
-            <RecipeCardDetails>{details}</RecipeCardDetails>
-          </RecipeCardDetailsWrapper>
-        </RecipeCardDetailsContainer>
-        <RecipeButtonContainer>
-          <RecipeButton>{buttonText}</RecipeButton>
-        </RecipeButtonContainer>
-      </RecipeCardWrapper>
-    </RecipeContainer>
+    <RecipeLink to={`/recipe/${id}`}>
+      <RecipeContainer>
+        <RecipeCardWrapper direction="column">
+          <div>
+            <img src={mockRecipeImage} alt="recipe" />
+          </div>
+          <RecipeCardDetailsContainer>
+            <RecipeCardDetailsWrapper direction="column">
+              <RecipeCardHeadline>{headline}</RecipeCardHeadline>
+              <RecipeCardDescription>{descriptionState}</RecipeCardDescription>
+              <RecipeCardDetails>{details}</RecipeCardDetails>
+            </RecipeCardDetailsWrapper>
+          </RecipeCardDetailsContainer>
+          <RecipeButtonContainer>
+            <RecipeButton>{buttonText}</RecipeButton>
+          </RecipeButtonContainer>
+        </RecipeCardWrapper>
+      </RecipeContainer>
+    </RecipeLink>
   );
 }

@@ -1,7 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
+import { useEffect, useState } from "react";
 import FlexBox from "./FlexBox";
 import RecipeCard from "./RecipeCard";
+import mockRecipeApi from "./RecipeApi";
 
 export default function RecipeInfo() {
   const RecipeInfo = styled(FlexBox)`
@@ -10,44 +12,31 @@ export default function RecipeInfo() {
     padding: 20px 0px 0px 0px;
   `;
 
-  const recipeCardData = [
-    {
-      headline: "Caesar Salad with marinated chicken",
-      description: "ready-to-eat dish contains max. 20% carbohydrates",
-      details: "35M in",
-      buttonText: "Cook now",
-    },
-    {
-      headline: "Caesar Salad with marinated chicken",
-      description: "ready-to-eat dish contains max. 20% carbohydrates",
-      details: "35M in",
-      buttonText: "Cook now",
-    },
-    {
-      headline: "Caesar Salad with marinated chicken",
-      description: "ready-to-eat dish contains max. 20% carbohydrates",
-      details: "35M in",
-      buttonText: "Cook now",
-    },
-    {
-      headline: "Caesar Salad with marinated chicken",
-      description: "ready-to-eat dish contains max. 20% carbohydrates",
-      details: "35M in",
-      buttonText: "Cook now",
-    },
-  ];
+  const [allRecipes, setAllRecipes] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  // TODO: ON CLICK EVENT FOR RECIPE CARD
-  return (
-    <RecipeInfo justifyContent="flex-start">
-      {recipeCardData.map((recipe) => (
-        <RecipeCard
-          headline={recipe.headline}
-          description={recipe.description}
-          details={recipe.details}
-          buttonText={recipe.buttonText}
-        />
-      ))}
-    </RecipeInfo>
-  );
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+      setAllRecipes(mockRecipeApi());
+    }, Math.floor(Math.random() * 1500));
+  }, []);
+
+  if (loading) {
+    return <p>Loading...</p>;
+  } else {
+    return (
+      <RecipeInfo justifyContent="flex-start">
+        {allRecipes.map((recipe) => (
+          <RecipeCard
+            id={recipe.id}
+            headline={recipe.headline}
+            description={recipe.description}
+            details={recipe.details}
+            buttonText={recipe.buttonText}
+          />
+        ))}
+      </RecipeInfo>
+    );
+  }
 }

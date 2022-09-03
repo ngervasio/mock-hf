@@ -1,10 +1,9 @@
 /** @jsxImportSource @emotion/react */
-import { Link } from "react-router-dom";
-import { css } from "@emotion/react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import RecipePage from "./routes/RecipePage";
 
-import Header from "./Header";
-import Delivery from "./Delivery";
-import Recipes from "./Recipes";
+import { css } from "@emotion/react";
+import RecipesPage from "./RecipesPage";
 
 export default function testPage() {
   const Wrapper = (props) => (
@@ -32,13 +31,12 @@ export default function testPage() {
   return (
     <MainWrapper>
       <Wrapper>
-        {/* recipe information dates section */}
-        <Header />
-        {/* recipe information delivery section */}
-        <Delivery />
-        {/* recipe information cards section */}
-        <Recipes />
-        <Link to="/recipe">RecipePage</Link>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<RecipesPage />} />
+            <Route path="recipe/:id" element={<RecipePage />} />
+          </Routes>
+        </BrowserRouter>
       </Wrapper>
     </MainWrapper>
   );
