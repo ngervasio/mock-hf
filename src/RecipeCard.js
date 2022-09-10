@@ -5,18 +5,12 @@ import FlexBox from "./FlexBox";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-export default function RecipeCard({
-  id,
-  headline,
-  description,
-  details,
-  buttonText,
-}) {
-  const [descriptionState, setDescription] = useState(description);
+export default function RecipeCard({ id, title, sides, details, buttonText }) {
+  const [sidesState, setSides] = useState(sides);
 
   useEffect(() => {
     setTimeout(() => {
-      setDescription(descriptionState + " from effect");
+      setSides(sidesState + " from effect");
     }, 2000);
   }, []);
 
@@ -104,8 +98,8 @@ export default function RecipeCard({
           </div>
           <RecipeCardDetailsContainer>
             <RecipeCardDetailsWrapper direction="column">
-              <RecipeCardHeadline>{headline}</RecipeCardHeadline>
-              <RecipeCardDescription>{descriptionState}</RecipeCardDescription>
+              <RecipeCardHeadline>{title}</RecipeCardHeadline>
+              <RecipeCardDescription>{sidesState}</RecipeCardDescription>
               <RecipeCardDetails>{details}</RecipeCardDetails>
             </RecipeCardDetailsWrapper>
           </RecipeCardDetailsContainer>

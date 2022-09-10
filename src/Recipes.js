@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { useEffect, useState } from "react";
 import FlexBox from "./FlexBox";
 import RecipeCard from "./RecipeCard";
-import mockRecipeApi from "./RecipeApi";
+import mockRecipeApi from "./api/MockRecipeApi";
 
 export default function RecipeInfo() {
   const RecipeInfo = styled(FlexBox)`
@@ -30,8 +30,8 @@ export default function RecipeInfo() {
         {allRecipes.map((recipe) => (
           <RecipeCard
             id={recipe.id}
-            headline={recipe.headline}
-            description={recipe.description}
+            title={recipe.title}
+            sides={recipe.sides}
             details={recipe.details}
             buttonText={recipe.buttonText}
           />
