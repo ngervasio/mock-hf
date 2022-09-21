@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import styled from "@emotion/styled";
 
-export default function RecipePageHeaderDetail({ detail }) {
+export default function RecipePageHeaderDetail({ detail, detailTitle }) {
   const RecipeCardText = styled.p`
     color: #242424;
     margin: 0px;
@@ -10,9 +10,24 @@ export default function RecipePageHeaderDetail({ detail }) {
     line-height: normal;
   `;
 
-  const RecipeCardDetails = styled(RecipeCardText)`
+  const DetailTitle = styled(RecipeCardText)`
+    font-size: 16px;
+    line-height: 24px;
     font-weight: 600;
   `;
 
-  return <RecipeCardDetails>{detail}</RecipeCardDetails>;
+  const Detail = styled(DetailTitle)`
+    font-weight: 400;
+  `;
+
+  const DetailBox = styled.div`
+    padding-right: 20px;
+  `;
+
+  return (
+    <DetailBox>
+      <DetailTitle>{detailTitle}</DetailTitle>
+      <Detail>{detail}</Detail>
+    </DetailBox>
+  );
 }

@@ -42,37 +42,43 @@ function RecipePage() {
     max-width: 1200px;
   `;
 
-  // const [isLoading, setLoading] = useState(true)
+  const [isLoading, setLoading] = useState(true);
   const [recipe, setRecipe] = useState({});
   const params = useParams();
   useEffect(() => {
-    setRecipe(mockRecipeApi(params.id));
+    setTimeout(() => {
+      const recipeDetails = mockRecipeApi(params.id);
+      setLoading(false);
+      setRecipe(recipeDetails);
+    }, 1000);
   }, []);
 
-  return (
-    <MainWrapper>
-      <RecipeCardWrapper direction="column">
-        <div>
-          <img src={mockRecipeImage} alt="recipe" />
-        </div>
-        <RecipeCardDetailsContainer>
-          <RecipeCardDetailsWrapper direction="column">
-            <RecipePageHeader
-              details={recipe.details}
-              calories={recipe.calories}
-              level={recipe.level}
-              buttonText={recipe.buttonText}
-            />
-            <RecipeCardItems
-              description={recipe.description}
-              allergens={recipe.allergens}
-              allerens_note={recipe.allerens_note}
-            />
-          </RecipeCardDetailsWrapper>
-        </RecipeCardDetailsContainer>
-      </RecipeCardWrapper>
-    </MainWrapper>
-  );
+  if (isLoading) {
+    return <p>Loading...</p>;
+  } else {
+    return (
+      <MainWrapper>
+        <RecipeCardWrapper direction="column">
+          <div>
+            <img src={mockRecipeImage} alt="recipe" />
+          </div>
+          <RecipeCardDetailsContainer>
+            <RecipeCardDetailsWrapper direction="column">
+              <RecipePageHeader
+                recipeDetails={recipe.recipe_page_details}
+                buttonText={recipe.buttonText}
+              />
+              <RecipeCardItems
+                description={recipe.description}
+                allergens={recipe.allergens}
+                allerens_note={recipe.allerens_note}
+              />
+            </RecipeCardDetailsWrapper>
+          </RecipeCardDetailsContainer>
+        </RecipeCardWrapper>
+      </MainWrapper>
+    );
+  }
 }
 
 const WrappedDetails = () => {

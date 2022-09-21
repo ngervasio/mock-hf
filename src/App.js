@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RecipePage from "./recipe-page/RecipePage";
 import MealchoicePage from "./MealchoicePage";
 
-export default function testPage() {
+export default function App() {
   return (
     <BrowserRouter>
       <Routes>

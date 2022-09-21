@@ -3,10 +3,13 @@ const recipeCardData = [
     id: 0,
     title: "Fiorelli! Pasta pockets with mushroom filling",
     sides: "in creamy mushroom sauce, with cheese crumbs",
+    recipe_page_details: [
+      ["total time", "30 Min"],
+      ["calories", "843 calories"],
+      ["difficulty level", "Easy"],
+    ],
     details: "30 Min",
     buttonText: "Cook now",
-    calories: "843 calories",
-    level: "Easy",
     description:
       "Once again we want to bring Bella Italia into your home. The best way to do this is with dishes that are as simple as they are ingenious. Like the kitchen in Italy itself! Fresh, aromatic ingredients, uncomplicated preparation - it all comes together today. Enjoy your meal!",
     allergens: [
@@ -23,10 +26,13 @@ const recipeCardData = [
     id: 1,
     title: "Pork medallions in curry cream sauce",
     sides: "with potato-broccoli-vegetables",
+    recipe_page_details: [
+      ["total time", "35 Min"],
+      ["calories", "602 calories"],
+      ["difficulty level", "Middle"],
+    ],
     details: "35 Min",
     buttonText: "Cook now",
-    calories: "602 calories",
-    level: "Middle",
     description:
       "Today we stay down to earth. With fresh and seasonal ingredients, we were inspired by German cuisine today. Our variant will definitely brighten up your evening. Enjoy your meal!",
     allergens: [
@@ -41,10 +47,13 @@ const recipeCardData = [
     id: 2,
     title: "Caesar Salad with marinated chicken",
     sides: "ready-to-eat dish contains max. 20% carbohydrates",
-    details: "25 Min",
+    recipe_page_details: [
+      ["total time", "25 Min"],
+      ["calories", "755 calories"],
+      ["difficulty level", "Middle"],
+    ],
+    details: "40 Min",
     buttonText: "Cook now",
-    calories: "602 calories",
-    level: "Middle",
     description:
       "Today we stay down to earth. With fresh and seasonal ingredients, we were inspired by German cuisine today. Our variant will definitely brighten up your evening. Enjoy your meal!",
     allergens: [
@@ -59,10 +68,13 @@ const recipeCardData = [
     id: 3,
     title: "Currywurst with homemade red sauce",
     sides: "Served with cheesy potato sticks and salad",
-    details: "45 Min",
+    recipe_page_details: [
+      ["total time", "45 Min"],
+      ["calories", "950 calories"],
+      ["difficulty level", "Middle"],
+    ],
+    details: "25 Min",
     buttonText: "Cook now",
-    calories: "950 calories",
-    level: "Middle",
     description:
       "Today we stay down to earth. Today we were inspired by German cuisine. Our variant will definitely brighten up your evening. Enjoy your meal!",
     allergens: [
