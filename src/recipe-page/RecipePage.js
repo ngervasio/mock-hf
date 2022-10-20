@@ -45,6 +45,7 @@ function RecipePage() {
   const [isLoading, setLoading] = useState(true);
   const [recipe, setRecipe] = useState({});
   const params = useParams();
+
   useEffect(() => {
     setTimeout(() => {
       const recipeDetails = mockRecipeApi(params.id);
