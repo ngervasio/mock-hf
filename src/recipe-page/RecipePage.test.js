@@ -8,7 +8,6 @@ describe("recipe page", () => {
   it("should ...", () => {
     render(<RecipePage />);
     expect(screen.getByText("Loading...")).toBeInTheDocument();
-    mockRecipeApi();
     /**
      *  Expected number of calls: 1
         Received number of calls: 0
